@@ -1,0 +1,28 @@
+<div class="container">
+    <h2>Generador de Recibo de Sueldo</h2>
+  
+    <form (ngSubmit)="calcularRecibo()">
+      <div class="form-group">
+        <label for="basico">Sueldo Básico</label>
+        <input type="number" id="basico" class="form-control" [(ngModel)]="recibo.basico" name="basico" required />
+      </div>
+  
+      <div class="form-group">
+        <label for="horasExtras">Horas Extras</label>
+        <input type="number" id="horasExtras" class="form-control" [(ngModel)]="recibo.horasExtras" name="horasExtras" />
+      </div>
+  
+      <div class="form-group">
+        <label for="otrosConceptos">Otros Conceptos</label>
+        <input type="number" id="otrosConceptos" class="form-control" [(ngModel)]="recibo.otrosConceptos" name="otrosConceptos" />
+      </div>
+  
+      <button type="submit" class="btn btn-primary mt-3">Calcular</button>
+    </form>
+  
+    <div *ngIf="resultado">
+      <h3>Resultado:</h3>
+      <p><strong>Sueldo Neto:</strong> {{ resultado | currency }}</p>
+    </div>
+  </div>
+  
